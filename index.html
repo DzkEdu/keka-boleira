@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keka Boleira | Bolos artesanais em Pouso Alegre</title>
+<meta name="description" content="Bolos artesanais, bolo de pote, morango do amor, bombons e doces pra festa em Pouso Alegre/MG. Faça seu pedido pelo WhatsApp.">
+<meta property="og:title" content="Keka Boleira | Bolos artesanais em Pouso Alegre">
+<meta property="og:description" content="O bolo mais lembrado de Pouso Alegre. Faça seu pedido pelo WhatsApp.">
+<meta property="og:image" content="assets/logo-keka.png">
+<link rel="icon" href="assets/logo-keka.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rosa: #FDDCEB;
+    --rosa-claro: #FFF1F7;
+    --rosa-forte: #E58BB2;
+    --chocolate: #6B4518;
+    --chocolate-escuro: #4A2F10;
+    --texto: #4A3526;
+    --branco: #FFFFFF;
+    --whats: #25D366;
+    --raio: 22px;
+    --sombra: 0 10px 30px rgba(107, 69, 24, .12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito', system-ui, sans-serif;
+    color: var(--texto);
+    background: var(--rosa-claro);
+    line-height: 1.6;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: 'Josefin Sans', sans-serif; color: var(--chocolate); line-height: 1.15; }
+  .container { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+  /* Botões */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 15px 26px; border-radius: 999px; font-weight: 700; font-size: 1rem;
+    text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
+  .btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+  .btn-whats { background: var(--chocolate); color: var(--branco); }
+  .btn-whats:hover { background: var(--chocolate-escuro); }
+  .btn-insta { background: transparent; color: var(--chocolate); border: 2px solid var(--chocolate); }
+  .btn-insta:hover { background: var(--chocolate); color: var(--branco); }
+
+  /* Topo */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 241, 247, .92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(107, 69, 24, .08);
+  }
+  .topo { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; gap: 12px; }
+  .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .marca img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+  .marca span { font-family: 'Josefin Sans', sans-serif; font-size: 1.3rem; color: var(--chocolate); }
+  nav { display: flex; gap: 24px; }
+  nav a { text-decoration: none; color: var(--chocolate); font-weight: 600; font-size: .95rem; }
+  nav a:hover { color: var(--rosa-forte); }
+  .topo .btn { padding: 10px 18px; font-size: .9rem; }
+
+  /* Hero */
+  .hero { background: var(--rosa); padding: 64px 0 80px; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+  .selo {
+    display: inline-block; background: var(--branco); color: var(--chocolate);
+    padding: 6px 16px; border-radius: 999px; font-size: .85rem; font-weight: 700; margin-bottom: 18px;
+  }
+  .hero h1 { font-size: clamp(2.3rem, 5.5vw, 3.8rem); font-weight: 600; margin-bottom: 18px; }
+  .hero h1 em { font-style: normal; color: var(--rosa-forte); }
+  .hero p { font-size: 1.15rem; max-width: 34ch; margin-bottom: 30px; }
+  .acoes { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-foto { position: relative; }
+  .hero-foto .moldura {
+    aspect-ratio: 4 / 5; border-radius: 200px 200px var(--raio) var(--raio);
+    overflow: hidden; box-shadow: var(--sombra); background: var(--rosa-claro);
+    border: 8px solid var(--branco);
+  }
+  .hero-foto .logo-flutuante {
+    position: absolute; left: -28px; bottom: 28px; width: 130px; height: 130px;
+    border-radius: 50%; border: 6px solid var(--branco); box-shadow: var(--sombra); object-fit: cover;
+  }
+
+  /* Foto com reserva enquanto a imagem não chega */
+  .foto { width: 100%; height: 100%; object-fit: cover; }
+  .reserva {
+    width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 6px; text-align: center; padding: 16px; color: var(--chocolate); opacity: .55; font-size: .85rem;
+    background: repeating-linear-gradient(45deg, var(--rosa-claro), var(--rosa-claro) 12px, var(--rosa) 12px, var(--rosa) 24px);
+  }
+  .reserva strong { font-family: 'Josefin Sans', sans-serif; font-size: 1rem; }
+
+  /* Seções */
+  section { padding: 80px 0; }
+  .titulo { text-align: center; margin-bottom: 48px; }
+  .titulo small { display: block; color: var(--rosa-forte); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; margin-bottom: 10px; }
+  .titulo h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); font-weight: 600; }
+  .titulo p { margin-top: 12px; max-width: 52ch; margin-inline: auto; }
+
+  /* Produtos */
+  .produtos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .card {
+    background: var(--branco); border-radius: var(--raio); overflow: hidden; box-shadow: var(--sombra);
+    display: flex; flex-direction: column; transition: transform .25s;
+  }
+  .card:hover { transform: translateY(-6px); }
+  .card .img { aspect-ratio: 1 / 1; overflow: hidden; }
+  .card .info { padding: 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .card h3 { font-size: 1.35rem; font-weight: 600; }
+  .card p { font-size: .95rem; flex: 1; }
+  .card a { margin-top: 10px; font-weight: 700; color: var(--chocolate); text-decoration: none; }
+  .card a:hover { color: var(--rosa-forte); }
+
+  /* Datas especiais */
+  .datas { background: var(--chocolate); color: var(--rosa); }
+  .datas h2 { color: var(--branco); }
+  .datas .titulo small { color: var(--rosa); }
+  .datas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .data {
+    border: 1px solid rgba(253, 220, 235, .3); border-radius: var(--raio); padding: 28px; text-align: center;
+  }
+  .data h3 { color: var(--branco); font-size: 1.3rem; margin-bottom: 8px; }
+  .datas .acoes { justify-content: center; margin-top: 40px; }
+  .datas .btn-whats { background: var(--rosa); color: var(--chocolate); }
+  .datas .btn-whats:hover { background: var(--branco); }
+
+  /* Como pedir */
+  .passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; counter-reset: passo; }
+  .passo { text-align: center; padding: 10px; }
+  .passo::before {
+    counter-increment: passo; content: counter(passo);
+    display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto 16px;
+    border-radius: 50%; background: var(--rosa); color: var(--chocolate);
+    font-family: 'Josefin Sans', sans-serif; font-size: 1.8rem; font-weight: 600;
+  }
+  .passo h3 { font-size: 1.25rem; margin-bottom: 6px; }
+
+  /* Onde estamos */
+  .local { background: var(--rosa); }
+  .local-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; }
+  .local h2 { font-size: clamp(1.9rem, 4vw, 2.5rem); margin-bottom: 16px; }
+  .local p { font-size: 1.1rem; margin-bottom: 8px; }
+  .local .acoes { margin-top: 24px; }
+  .mapa { border-radius: var(--raio); overflow: hidden; box-shadow: var(--sombra); border: 6px solid var(--branco); }
+  .mapa iframe { width: 100%; height: 340px; border: 0; display: block; }
+
+  /* Rodapé */
+  footer { background: var(--chocolate-escuro); color: var(--rosa); padding: 40px 0 100px; text-align: center; font-size: .9rem; }
+  footer img { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 14px; }
+  footer a { color: var(--rosa); }
+  footer .credito { margin-top: 14px; opacity: .6; font-size: .8rem; }
+
+  /* Botão flutuante do WhatsApp */
+  .whats-flutuante {
+    position: fixed; right: 18px; bottom: 18px; z-index: 60;
+    width: 62px; height: 62px; border-radius: 50%; background: var(--whats);
+    display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    animation: pulso 2.4s infinite;
+  }
+  .whats-flutuante svg { width: 34px; height: 34px; fill: var(--branco); }
+  @keyframes pulso {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, .5); }
+    70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  }
+
+  /* Responsivo */
+  @media (max-width: 900px) {
+    nav { display: none; }
+    .hero { padding: 40px 0 60px; }
+    .hero-grid, .local-grid { grid-template-columns: 1fr; }
+    .hero-foto { max-width: 420px; margin: 10px auto 0; }
+    .hero-foto .logo-flutuante { left: -8px; width: 100px; height: 100px; }
+    .produtos { grid-template-columns: repeat(2, 1fr); }
+    .datas-grid, .passos { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    section { padding: 60px 0; }
+    .produtos { grid-template-columns: 1fr; }
+    .topo .btn span { display: none; }
+    .acoes .btn { width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Ícones reutilizados -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-whats" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.9.99 6.68 2.77a9.38 9.38 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.45 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.05.69C5.78.69.68 5.79.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.62l6.02-1.58a11.33 11.33 0 0 0 5.44 1.39h.01c6.27 0 11.37-5.1 11.37-11.37 0-3.04-1.18-5.89-3.33-8.04z"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.72 3.72 0 0 1-.9 1.38c-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.88 5.88 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></symbol>
+</svg>
+
+<header>
+  <div class="container topo">
+    <a href="#inicio" class="marca">
+      <img src="assets/logo-keka.png" alt="Logo Keka Boleira">
+      <span>Keka Boleira</span>
+    </a>
+    <nav>
+      <a href="#produtos">Produtos</a>
+      <a href="#datas">Datas especiais</a>
+      <a href="#como-pedir">Como pedir</a>
+      <a href="#onde">Onde estamos</a>
+    </nav>
+    <a class="btn btn-whats" href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">
+      <svg><use href="#i-whats"/></svg><span>Fazer pedido</span>
+    </a>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="selo">Bolos artesanais em Pouso Alegre/MG</span>
+        <h1>O bolo mais <em>lembrado</em> de Pouso Alegre</h1>
+        <p>Bolos e doces feitos à mão pra dar sabor aos seus momentos importantes. Aniversário, festa ou aquela vontade de doce no meio da semana.</p>
+        <div class="acoes">
+          <a class="btn btn-whats" href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">
+            <svg><use href="#i-whats"/></svg>Encomendar pelo WhatsApp
+          </a>
+          <a class="btn btn-insta" href="https://instagram.com/kekaboleira" target="_blank" rel="noopener">
+            <svg><use href="#i-insta"/></svg>Ver no Instagram
+          </a>
+        </div>
+      </div>
+      <div class="hero-foto">
+        <div class="moldura">
+          <img class="foto" src="assets/produtos/destaque.jpg" alt="Bolo artesanal da Keka Boleira" data-reserva="destaque.jpg">
+        </div>
+        <img class="logo-flutuante" src="assets/logo-keka.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section id="produtos">
+    <div class="container">
+      <div class="titulo">
+        <small>Cardápio</small>
+        <h2>Feitos com carinho, do jeito que você gosta</h2>
+        <p>Do bolo da festa ao docinho do dia a dia. Escolha o seu e chame a Keka no WhatsApp pra encomendar.</p>
+      </div>
+      <div class="produtos">
+        <article class="card">
+          <div class="img"><img class="foto" src="assets/produtos/bolos.jpg" alt="Bolo de festa" data-reserva="bolos.jpg" loading="lazy"></div>
+          <div class="info">
+            <h3>Bolos de festa</h3>
+            <p>Bolos artesanais pra aniversário, casamento e toda comemoração que merece ser lembrada.</p>
+            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Encomendar →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="img"><img class="foto" src="assets/produtos/bolo-fatia.jpg" alt="Bolo fatia" data-reserva="bolo-fatia.jpg" loading="lazy"></div>
+          <div class="info">
+            <h3>Bolo fatia</h3>
+            <p>Pra matar a vontade de bolo sem precisar de festa.</p>
+            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Pedir agora →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="img"><img class="foto" src="assets/produtos/bolo-de-pote.jpg" alt="Bolo de pote" data-reserva="bolo-de-pote.jpg" loading="lazy"></div>
+          <div class="info">
+            <h3>Bolo de pote</h3>
+            <p>Camadas de massa e recheio no pote, fácil de levar pra onde for.</p>
+            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Pedir agora →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="img"><img class="foto" src="assets/produtos/morango-do-amor.jpg" alt="Morango do amor" data-reserva="morango-do-amor.jpg" loading="lazy"></div>
+          <div class="info">
+            <h3>Morango do amor</h3>
+            <p>Morango com brigadeiro e casquinha crocante.</p>
+            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Pedir agora →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="img"><img class="foto" src="assets/produtos/copo-tentacao.jpg" alt="Copo tentação" data-reserva="copo-tentacao.jpg" loading="lazy"></div>
+          <div class="info">
+            <h3>Copo tentação</h3>
+            <p>Um copo cheio de camadas de doce, difícil de resistir.</p>
+            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Pedir agora →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="img"><img class="foto" src="assets/produtos/bombom.jpg" alt="Bombons" data-reserva="bombom.jpg" loading="lazy"></div>
+          <div class="info">
+            <h3>Bombons e doces</h3>
+            <p>Bombons e docinhos pra presentear ou deixar a mesa da festa completa.</p>
+            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Pedir agora →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="datas" class="datas">
+    <div class="container">
+      <div class="titulo">
+        <small>Datas especiais</small>
+        <h2>Tem data importante chegando?</h2>
+        <p>A Keka prepara linhas especiais em cada época do ano. As vagas costumam acabar rápido, então encomende com antecedência.</p>
+      </div>
+      <div class="datas-grid">
+        <div class="data">
+          <h3>Páscoa</h3>
+          <p>Ovos de Páscoa artesanais, feitos à mão.</p>
+        </div>
+        <div class="data">
+          <h3>Natal</h3>
+          <p>Doces e bolos pra deixar a ceia mais doce.</p>
+        </div>
+        <div class="data">
+          <h3>Sua festa</h3>
+          <p>Aniversário, chá revelação, casamento. É só contar o que você imagina.</p>
+        </div>
+      </div>
+      <div class="acoes">
+        <a class="btn btn-whats" href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">
+          <svg><use href="#i-whats"/></svg>Garantir minha encomenda
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-pedir">
+    <div class="container">
+      <div class="titulo">
+        <small>Como pedir</small>
+        <h2>Simples assim</h2>
+      </div>
+      <div class="passos">
+        <div class="passo">
+          <h3>Escolha o doce</h3>
+          <p>Veja o cardápio aqui ou os destaques no Instagram.</p>
+        </div>
+        <div class="passo">
+          <h3>Chame no WhatsApp</h3>
+          <p>Conte o que você quer, pra quantas pessoas e pra quando.</p>
+        </div>
+        <div class="passo">
+          <h3>Retire na loja</h3>
+          <p>Combine o dia e busque o seu pedido no Centro de Pouso Alegre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="onde" class="local">
+    <div class="container local-grid">
+      <div>
+        <h2>Onde estamos</h2>
+        <p><strong>Rua Tiradentes, 400, loja 6</strong></p>
+        <p>Centro, Pouso Alegre/MG</p>
+        <div class="acoes">
+          <a class="btn btn-whats" href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">
+            <svg><use href="#i-whats"/></svg>Fazer pedido
+          </a>
+          <a class="btn btn-insta" href="https://www.google.com/maps/search/?api=1&query=Rua+Tiradentes+400+Centro+Pouso+Alegre+MG" target="_blank" rel="noopener">
+            Como chegar
+          </a>
+        </div>
+      </div>
+      <div class="mapa">
+        <iframe title="Mapa da Keka Boleira" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Rua+Tiradentes+400,+Centro,+Pouso+Alegre+-+MG&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <img src="assets/logo-keka.png" alt="Keka Boleira">
+    <p>Keka Boleira · Bolos artesanais</p>
+    <p>Rua Tiradentes, 400, loja 6, Centro, Pouso Alegre/MG</p>
+    <p><a href="https://instagram.com/kekaboleira" target="_blank" rel="noopener">@kekaboleira</a></p>
+    <p class="credito">Site feito por Dzk</p>
+  </div>
+</footer>
+
+<a class="whats-flutuante" href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener" aria-label="Fazer pedido pelo WhatsApp">
+  <svg><use href="#i-whats"/></svg>
+</a>
+
+<script>
+  // Enquanto a foto não existe em assets/produtos/, mostra um espaço reservado com o nome do arquivo esperado
+  document.querySelectorAll('img[data-reserva]').forEach(function (img) {
+    function trocar() {
+      var div = document.createElement('div');
+      div.className = 'reserva';
+      div.innerHTML = '<strong>Foto aqui</strong><span>assets/produtos/' + img.dataset.reserva + '</span>';
+      img.replaceWith(div);
+    }
+    if (img.complete && img.naturalWidth === 0) trocar();
+    else img.addEventListener('error', trocar);
+  });
+</script>
+</body>
+</html>
