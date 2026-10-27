@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Keka Boleira | Bolos artesanais em Pouso Alegre</title>
-<meta name="description" content="Bolos artesanais, bolo de pote, morango do amor, bombons e doces pra festa em Pouso Alegre/MG. Faça seu pedido pelo WhatsApp.">
-<meta property="og:title" content="Keka Boleira | Bolos artesanais em Pouso Alegre">
-<meta property="og:description" content="O bolo mais lembrado de Pouso Alegre. Faça seu pedido pelo WhatsApp.">
+<title>Catálogo Keka Boleira | Bolos artesanais em Pouso Alegre</title>
+<meta name="description" content="Catálogo da Keka Boleira: bolos de festa, bolo fatia, bolo de pote, morango do amor, copo tentação e bombons em Pouso Alegre/MG. Monte seu pedido e envie pelo WhatsApp.">
+<meta property="og:title" content="Catálogo Keka Boleira">
+<meta property="og:description" content="O bolo mais lembrado de Pouso Alegre. Monte seu pedido e envie pelo WhatsApp.">
 <meta property="og:image" content="assets/logo-keka.png">
 <link rel="icon" href="assets/logo-keka.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,61 +32,101 @@
     color: var(--texto);
     background: var(--rosa-claro);
     line-height: 1.6;
+    padding-bottom: 96px;
   }
+  body.travado { overflow: hidden; }
   img { max-width: 100%; display: block; }
   a { color: inherit; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  button { cursor: pointer; }
   h1, h2, h3 { font-family: 'Josefin Sans', sans-serif; color: var(--chocolate); line-height: 1.15; }
   .container { width: min(1120px, 100% - 32px); margin-inline: auto; }
 
   /* Botões */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    padding: 15px 26px; border-radius: 999px; font-weight: 700; font-size: 1rem;
+    padding: 14px 24px; border-radius: 999px; font-weight: 700; font-size: 1rem; border: 0;
     text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s;
   }
   .btn:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
   .btn svg { width: 22px; height: 22px; flex-shrink: 0; }
   .btn-whats { background: var(--chocolate); color: var(--branco); }
   .btn-whats:hover { background: var(--chocolate-escuro); }
-  .btn-insta { background: transparent; color: var(--chocolate); border: 2px solid var(--chocolate); }
-  .btn-insta:hover { background: var(--chocolate); color: var(--branco); }
+  .btn-verde { background: var(--whats); color: var(--branco); width: 100%; }
+  .btn-verde:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
 
   /* Topo */
   header {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(255, 241, 247, .92); backdrop-filter: blur(8px);
+    background: rgba(255, 241, 247, .94); backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(107, 69, 24, .08);
   }
   .topo { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; gap: 12px; }
   .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .marca img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
-  .marca span { font-family: 'Josefin Sans', sans-serif; font-size: 1.3rem; color: var(--chocolate); }
-  nav { display: flex; gap: 24px; }
-  nav a { text-decoration: none; color: var(--chocolate); font-weight: 600; font-size: .95rem; }
-  nav a:hover { color: var(--rosa-forte); }
+  .marca img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+  .marca span { font-family: 'Josefin Sans', sans-serif; font-size: 1.25rem; color: var(--chocolate); }
   .topo .btn { padding: 10px 18px; font-size: .9rem; }
+  .btn-carrinho { position: relative; }
+  .contador {
+    position: absolute; top: -6px; right: -6px; min-width: 22px; height: 22px; padding: 0 6px;
+    border-radius: 999px; background: var(--rosa-forte); color: var(--branco);
+    font-size: .75rem; font-weight: 700; display: grid; place-items: center;
+  }
+  .contador[hidden] { display: none; }
 
-  /* Hero */
-  .hero { background: var(--rosa); padding: 64px 0 80px; overflow: hidden; }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
-  .selo {
-    display: inline-block; background: var(--branco); color: var(--chocolate);
-    padding: 6px 16px; border-radius: 999px; font-size: .85rem; font-weight: 700; margin-bottom: 18px;
+  /* Abertura */
+  .abertura { background: var(--rosa); padding: 44px 0 36px; text-align: center; }
+  .abertura .logo { width: 110px; height: 110px; border-radius: 50%; margin: 0 auto 16px; border: 5px solid var(--branco); box-shadow: var(--sombra); object-fit: cover; }
+  .abertura small { display: block; color: var(--rosa-forte); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .8rem; margin-bottom: 8px; }
+  .abertura h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 600; margin-bottom: 10px; }
+  .abertura p { max-width: 46ch; margin-inline: auto; }
+  .aviso-exemplo {
+    display: inline-block; margin-top: 18px; padding: 8px 16px; border-radius: 12px;
+    background: #FFF6D6; color: #7A5A00; border: 1px dashed #D9B23F; font-size: .85rem; font-weight: 600;
   }
-  .hero h1 { font-size: clamp(2.3rem, 5.5vw, 3.8rem); font-weight: 600; margin-bottom: 18px; }
-  .hero h1 em { font-style: normal; color: var(--rosa-forte); }
-  .hero p { font-size: 1.15rem; max-width: 34ch; margin-bottom: 30px; }
-  .acoes { display: flex; flex-wrap: wrap; gap: 14px; }
-  .hero-foto { position: relative; }
-  .hero-foto .moldura {
-    aspect-ratio: 4 / 5; border-radius: 200px 200px var(--raio) var(--raio);
-    overflow: hidden; box-shadow: var(--sombra); background: var(--rosa-claro);
-    border: 8px solid var(--branco);
+
+  /* Filtro de categorias */
+  .filtros-wrap { position: sticky; top: 65px; z-index: 40; background: var(--rosa-claro); padding: 14px 0; border-bottom: 1px solid rgba(107, 69, 24, .06); }
+  .filtros { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; }
+  .filtros::-webkit-scrollbar { display: none; }
+  .filtro {
+    flex-shrink: 0; padding: 9px 18px; border-radius: 999px; border: 2px solid var(--chocolate);
+    background: transparent; color: var(--chocolate); font-weight: 700; font-size: .9rem; transition: background .2s, color .2s;
   }
-  .hero-foto .logo-flutuante {
-    position: absolute; left: -28px; bottom: 28px; width: 130px; height: 130px;
-    border-radius: 50%; border: 6px solid var(--branco); box-shadow: var(--sombra); object-fit: cover;
+  .filtro[aria-pressed="true"], .filtro:hover { background: var(--chocolate); color: var(--branco); }
+
+  /* Catálogo */
+  .catalogo { padding: 32px 0 60px; }
+  .categoria { margin-bottom: 44px; }
+  .categoria h2 { font-size: 1.7rem; font-weight: 600; margin-bottom: 18px; }
+  .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card {
+    background: var(--branco); border-radius: var(--raio); overflow: hidden; box-shadow: var(--sombra);
+    display: flex; flex-direction: column;
   }
+  .card .img { aspect-ratio: 4 / 3; overflow: hidden; background: var(--rosa); }
+  .card .info { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .card h3 { font-size: 1.3rem; font-weight: 600; }
+  .card .desc { font-size: .93rem; flex: 1; }
+  .preco { font-weight: 700; color: var(--chocolate); font-size: 1.15rem; }
+  .preco small { font-weight: 600; font-size: .8rem; opacity: .7; }
+  .campo { display: flex; flex-direction: column; gap: 4px; font-size: .82rem; font-weight: 700; color: var(--chocolate); }
+  select, input, textarea {
+    width: 100%; padding: 10px 12px; border-radius: 12px; border: 1.5px solid rgba(107, 69, 24, .25);
+    background: var(--rosa-claro); font-weight: 600; font-size: .95rem;
+  }
+  select:focus, input:focus, textarea:focus { outline: 2px solid var(--rosa-forte); outline-offset: 1px; }
+  .comprar { display: flex; gap: 10px; align-items: center; margin-top: 4px; }
+  .qtd { display: flex; align-items: center; border: 1.5px solid rgba(107, 69, 24, .25); border-radius: 999px; overflow: hidden; flex-shrink: 0; }
+  .qtd button { width: 36px; height: 40px; border: 0; background: transparent; font-size: 1.2rem; font-weight: 700; color: var(--chocolate); }
+  .qtd button:hover { background: var(--rosa); }
+  .qtd span { min-width: 26px; text-align: center; font-weight: 700; }
+  .add {
+    flex: 1; height: 42px; border-radius: 999px; border: 0; background: var(--chocolate); color: var(--branco);
+    font-weight: 700; transition: background .2s;
+  }
+  .add:hover { background: var(--chocolate-escuro); }
+  .add.ok { background: var(--rosa-forte); }
 
   /* Foto com reserva enquanto a imagem não chega */
   .foto { width: 100%; height: 100%; object-fit: cover; }
@@ -97,95 +137,67 @@
   }
   .reserva strong { font-family: 'Josefin Sans', sans-serif; font-size: 1rem; }
 
-  /* Seções */
-  section { padding: 80px 0; }
-  .titulo { text-align: center; margin-bottom: 48px; }
-  .titulo small { display: block; color: var(--rosa-forte); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; margin-bottom: 10px; }
-  .titulo h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); font-weight: 600; }
-  .titulo p { margin-top: 12px; max-width: 52ch; margin-inline: auto; }
-
-  /* Produtos */
-  .produtos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
-  .card {
-    background: var(--branco); border-radius: var(--raio); overflow: hidden; box-shadow: var(--sombra);
-    display: flex; flex-direction: column; transition: transform .25s;
-  }
-  .card:hover { transform: translateY(-6px); }
-  .card .img { aspect-ratio: 1 / 1; overflow: hidden; }
-  .card .info { padding: 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-  .card h3 { font-size: 1.35rem; font-weight: 600; }
-  .card p { font-size: .95rem; flex: 1; }
-  .card a { margin-top: 10px; font-weight: 700; color: var(--chocolate); text-decoration: none; }
-  .card a:hover { color: var(--rosa-forte); }
-
   /* Datas especiais */
-  .datas { background: var(--chocolate); color: var(--rosa); }
-  .datas h2 { color: var(--branco); }
-  .datas .titulo small { color: var(--rosa); }
-  .datas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .data {
-    border: 1px solid rgba(253, 220, 235, .3); border-radius: var(--raio); padding: 28px; text-align: center;
-  }
-  .data h3 { color: var(--branco); font-size: 1.3rem; margin-bottom: 8px; }
-  .datas .acoes { justify-content: center; margin-top: 40px; }
+  .datas { background: var(--chocolate); color: var(--rosa); border-radius: var(--raio); padding: 32px; text-align: center; }
+  .datas h2 { color: var(--branco); font-size: 1.6rem; margin-bottom: 8px; }
+  .datas p { max-width: 50ch; margin: 0 auto 20px; }
   .datas .btn-whats { background: var(--rosa); color: var(--chocolate); }
-  .datas .btn-whats:hover { background: var(--branco); }
 
-  /* Como pedir */
-  .passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; counter-reset: passo; }
-  .passo { text-align: center; padding: 10px; }
-  .passo::before {
-    counter-increment: passo; content: counter(passo);
-    display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto 16px;
-    border-radius: 50%; background: var(--rosa); color: var(--chocolate);
-    font-family: 'Josefin Sans', sans-serif; font-size: 1.8rem; font-weight: 600;
+  /* Barra do pedido */
+  .barra {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 12px 0;
+    background: var(--branco); box-shadow: 0 -8px 30px rgba(107, 69, 24, .15);
+    transform: translateY(110%); transition: transform .3s;
   }
-  .passo h3 { font-size: 1.25rem; margin-bottom: 6px; }
+  .barra.ativa { transform: translateY(0); }
+  .barra .container { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .barra .resumo { line-height: 1.3; }
+  .barra .resumo strong { display: block; color: var(--chocolate); font-size: 1.15rem; }
+  .barra .resumo span { font-size: .85rem; }
 
-  /* Onde estamos */
-  .local { background: var(--rosa); }
-  .local-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; }
-  .local h2 { font-size: clamp(1.9rem, 4vw, 2.5rem); margin-bottom: 16px; }
-  .local p { font-size: 1.1rem; margin-bottom: 8px; }
-  .local .acoes { margin-top: 24px; }
-  .mapa { border-radius: var(--raio); overflow: hidden; box-shadow: var(--sombra); border: 6px solid var(--branco); }
-  .mapa iframe { width: 100%; height: 340px; border: 0; display: block; }
+  /* Gaveta do pedido */
+  .fundo { position: fixed; inset: 0; z-index: 70; background: rgba(74, 47, 16, .45); opacity: 0; pointer-events: none; transition: opacity .3s; }
+  .fundo.aberto { opacity: 1; pointer-events: auto; }
+  .gaveta {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 80; width: min(440px, 100%);
+    background: var(--rosa-claro); display: flex; flex-direction: column;
+    transform: translateX(100%); transition: transform .3s;
+  }
+  .gaveta.aberta { transform: translateX(0); }
+  .gaveta-topo { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid rgba(107, 69, 24, .1); }
+  .gaveta-topo h2 { font-size: 1.5rem; }
+  .fechar { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--rosa); color: var(--chocolate); font-size: 1.4rem; font-weight: 700; }
+  .gaveta-corpo { flex: 1; overflow-y: auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; }
+  #itens { display: flex; flex-direction: column; gap: 10px; }
+  .item { background: var(--branco); border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .item-topo { display: flex; justify-content: space-between; gap: 10px; }
+  .item-topo strong { color: var(--chocolate); }
+  .item-topo small { display: block; font-size: .82rem; opacity: .8; }
+  .item-baixo { display: flex; justify-content: space-between; align-items: center; }
+  .remover { border: 0; background: none; color: var(--rosa-forte); font-weight: 700; font-size: .85rem; }
+  .vazio { text-align: center; padding: 40px 10px; opacity: .7; }
+  .dados { display: flex; flex-direction: column; gap: 10px; padding-top: 6px; }
+  .gaveta-pe { padding: 16px 20px 20px; border-top: 1px solid rgba(107, 69, 24, .1); background: var(--branco); }
+  .total { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .total strong { font-size: 1.4rem; color: var(--chocolate); }
+  .nota { font-size: .8rem; opacity: .7; margin-bottom: 12px; }
 
   /* Rodapé */
-  footer { background: var(--chocolate-escuro); color: var(--rosa); padding: 40px 0 100px; text-align: center; font-size: .9rem; }
-  footer img { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 14px; }
+  footer { background: var(--chocolate-escuro); color: var(--rosa); padding: 40px 0; text-align: center; font-size: .9rem; }
+  footer img { width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 14px; }
   footer a { color: var(--rosa); }
   footer .credito { margin-top: 14px; opacity: .6; font-size: .8rem; }
 
-  /* Botão flutuante do WhatsApp */
-  .whats-flutuante {
-    position: fixed; right: 18px; bottom: 18px; z-index: 60;
-    width: 62px; height: 62px; border-radius: 50%; background: var(--whats);
-    display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,.25);
-    animation: pulso 2.4s infinite;
-  }
-  .whats-flutuante svg { width: 34px; height: 34px; fill: var(--branco); }
-  @keyframes pulso {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, .5); }
-    70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-  }
-
   /* Responsivo */
   @media (max-width: 900px) {
-    nav { display: none; }
-    .hero { padding: 40px 0 60px; }
-    .hero-grid, .local-grid { grid-template-columns: 1fr; }
-    .hero-foto { max-width: 420px; margin: 10px auto 0; }
-    .hero-foto .logo-flutuante { left: -8px; width: 100px; height: 100px; }
-    .produtos { grid-template-columns: repeat(2, 1fr); }
-    .datas-grid, .passos { grid-template-columns: 1fr; }
+    .grade { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 560px) {
-    section { padding: 60px 0; }
-    .produtos { grid-template-columns: 1fr; }
+    .grade { grid-template-columns: 1fr; }
     .topo .btn span { display: none; }
-    .acoes .btn { width: 100%; }
+    .filtros-wrap { top: 64px; }
+    .datas { padding: 26px 18px; }
+    .barra .btn { padding: 12px 18px; }
   }
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
@@ -197,7 +209,7 @@
 <!-- Ícones reutilizados -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-whats" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.9.99 6.68 2.77a9.38 9.38 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.45 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.05.69C5.78.69.68 5.79.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.62l6.02-1.58a11.33 11.33 0 0 0 5.44 1.39h.01c6.27 0 11.37-5.1 11.37-11.37 0-3.04-1.18-5.89-3.33-8.04z"/></symbol>
-  <symbol id="i-insta" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.72 3.72 0 0 1-.9 1.38c-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.88 5.88 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></symbol>
+  <symbol id="i-carrinho" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></symbol>
 </svg>
 
 <header>
@@ -206,174 +218,39 @@
       <img src="assets/logo-keka.png" alt="Logo Keka Boleira">
       <span>Keka Boleira</span>
     </a>
-    <nav>
-      <a href="#produtos">Produtos</a>
-      <a href="#datas">Datas especiais</a>
-      <a href="#como-pedir">Como pedir</a>
-      <a href="#onde">Onde estamos</a>
-    </nav>
-    <a class="btn btn-whats" href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">
-      <svg><use href="#i-whats"/></svg><span>Fazer pedido</span>
-    </a>
+    <button class="btn btn-whats btn-carrinho" id="carrinho-topo" aria-label="Abrir carrinho">
+      <svg><use href="#i-carrinho"/></svg><span>Carrinho</span>
+      <b class="contador" id="contador" hidden>0</b>
+    </button>
   </div>
 </header>
 
 <main id="inicio">
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="selo">Bolos artesanais em Pouso Alegre/MG</span>
-        <h1>O bolo mais <em>lembrado</em> de Pouso Alegre</h1>
-        <p>Bolos e doces feitos à mão pra dar sabor aos seus momentos importantes. Aniversário, festa ou aquela vontade de doce no meio da semana.</p>
-        <div class="acoes">
-          <a class="btn btn-whats" href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">
-            <svg><use href="#i-whats"/></svg>Encomendar pelo WhatsApp
-          </a>
-          <a class="btn btn-insta" href="https://instagram.com/kekaboleira" target="_blank" rel="noopener">
-            <svg><use href="#i-insta"/></svg>Ver no Instagram
-          </a>
-        </div>
-      </div>
-      <div class="hero-foto">
-        <div class="moldura">
-          <img class="foto" src="assets/produtos/destaque.jpg" alt="Bolo artesanal da Keka Boleira" data-reserva="destaque.jpg">
-        </div>
-        <img class="logo-flutuante" src="assets/logo-keka.png" alt="">
-      </div>
+  <section class="abertura">
+    <div class="container">
+      <img class="logo" src="assets/logo-keka.png" alt="">
+      <small>Bolos artesanais · Pouso Alegre/MG</small>
+      <h1>Catálogo</h1>
+      <p>Escolha seus doces, monte o pedido e envie direto pro WhatsApp da Keka. Retirada na loja, no Centro.</p>
+      <div id="aviso-exemplo" class="aviso-exemplo" hidden>Preços e sabores de exemplo, aguardando confirmação da Keka</div>
     </div>
   </section>
 
-  <section id="produtos">
-    <div class="container">
-      <div class="titulo">
-        <small>Cardápio</small>
-        <h2>Feitos com carinho, do jeito que você gosta</h2>
-        <p>Do bolo da festa ao docinho do dia a dia. Escolha o seu e chame a Keka no WhatsApp pra encomendar.</p>
-      </div>
-      <div class="produtos">
-        <article class="card">
-          <div class="img"><img class="foto" src="assets/produtos/bolos.jpg" alt="Bolo de festa" data-reserva="bolos.jpg" loading="lazy"></div>
-          <div class="info">
-            <h3>Bolos de festa</h3>
-            <p>Bolos artesanais pra aniversário, casamento e toda comemoração que merece ser lembrada.</p>
-            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Encomendar →</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="img"><img class="foto" src="assets/produtos/bolo-fatia.jpg" alt="Bolo fatia" data-reserva="bolo-fatia.jpg" loading="lazy"></div>
-          <div class="info">
-            <h3>Bolo fatia</h3>
-            <p>Pra matar a vontade de bolo sem precisar de festa.</p>
-            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Pedir agora →</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="img"><img class="foto" src="assets/produtos/bolo-de-pote.jpg" alt="Bolo de pote" data-reserva="bolo-de-pote.jpg" loading="lazy"></div>
-          <div class="info">
-            <h3>Bolo de pote</h3>
-            <p>Camadas de massa e recheio no pote, fácil de levar pra onde for.</p>
-            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Pedir agora →</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="img"><img class="foto" src="assets/produtos/morango-do-amor.jpg" alt="Morango do amor" data-reserva="morango-do-amor.jpg" loading="lazy"></div>
-          <div class="info">
-            <h3>Morango do amor</h3>
-            <p>Morango com brigadeiro e casquinha crocante.</p>
-            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Pedir agora →</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="img"><img class="foto" src="assets/produtos/copo-tentacao.jpg" alt="Copo tentação" data-reserva="copo-tentacao.jpg" loading="lazy"></div>
-          <div class="info">
-            <h3>Copo tentação</h3>
-            <p>Um copo cheio de camadas de doce, difícil de resistir.</p>
-            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Pedir agora →</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="img"><img class="foto" src="assets/produtos/bombom.jpg" alt="Bombons" data-reserva="bombom.jpg" loading="lazy"></div>
-          <div class="info">
-            <h3>Bombons e doces</h3>
-            <p>Bombons e docinhos pra presentear ou deixar a mesa da festa completa.</p>
-            <a href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">Pedir agora →</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+  <div class="filtros-wrap">
+    <div class="container filtros" id="filtros" role="toolbar" aria-label="Categorias"></div>
+  </div>
 
-  <section id="datas" class="datas">
+  <section class="catalogo">
     <div class="container">
-      <div class="titulo">
-        <small>Datas especiais</small>
-        <h2>Tem data importante chegando?</h2>
-        <p>A Keka prepara linhas especiais em cada época do ano. As vagas costumam acabar rápido, então encomende com antecedência.</p>
-      </div>
-      <div class="datas-grid">
-        <div class="data">
-          <h3>Páscoa</h3>
-          <p>Ovos de Páscoa artesanais, feitos à mão.</p>
-        </div>
-        <div class="data">
-          <h3>Natal</h3>
-          <p>Doces e bolos pra deixar a ceia mais doce.</p>
-        </div>
-        <div class="data">
-          <h3>Sua festa</h3>
-          <p>Aniversário, chá revelação, casamento. É só contar o que você imagina.</p>
-        </div>
-      </div>
-      <div class="acoes">
+      <div id="catalogo"></div>
+
+      <div class="datas">
+        <h2>Páscoa, Natal ou a sua festa</h2>
+        <p>Ovos de Páscoa, doces de Natal e bolos personalizados são feitos sob encomenda. Chame a Keka pra combinar com antecedência.</p>
         <a class="btn btn-whats" href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">
-          <svg><use href="#i-whats"/></svg>Garantir minha encomenda
+          <svg><use href="#i-whats"/></svg>Fazer encomenda especial
         </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="como-pedir">
-    <div class="container">
-      <div class="titulo">
-        <small>Como pedir</small>
-        <h2>Simples assim</h2>
-      </div>
-      <div class="passos">
-        <div class="passo">
-          <h3>Escolha o doce</h3>
-          <p>Veja o cardápio aqui ou os destaques no Instagram.</p>
-        </div>
-        <div class="passo">
-          <h3>Chame no WhatsApp</h3>
-          <p>Conte o que você quer, pra quantas pessoas e pra quando.</p>
-        </div>
-        <div class="passo">
-          <h3>Retire na loja</h3>
-          <p>Combine o dia e busque o seu pedido no Centro de Pouso Alegre.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="onde" class="local">
-    <div class="container local-grid">
-      <div>
-        <h2>Onde estamos</h2>
-        <p><strong>Rua Tiradentes, 400, loja 6</strong></p>
-        <p>Centro, Pouso Alegre/MG</p>
-        <div class="acoes">
-          <a class="btn btn-whats" href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener">
-            <svg><use href="#i-whats"/></svg>Fazer pedido
-          </a>
-          <a class="btn btn-insta" href="https://www.google.com/maps/search/?api=1&query=Rua+Tiradentes+400+Centro+Pouso+Alegre+MG" target="_blank" rel="noopener">
-            Como chegar
-          </a>
-        </div>
-      </div>
-      <div class="mapa">
-        <iframe title="Mapa da Keka Boleira" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Rua+Tiradentes+400,+Centro,+Pouso+Alegre+-+MG&output=embed"></iframe>
       </div>
     </div>
   </section>
@@ -384,28 +261,337 @@
   <div class="container">
     <img src="assets/logo-keka.png" alt="Keka Boleira">
     <p>Keka Boleira · Bolos artesanais</p>
-    <p>Rua Tiradentes, 400, loja 6, Centro, Pouso Alegre/MG</p>
+    <p><a href="https://www.google.com/maps/search/?api=1&query=Rua+Tiradentes+400+Centro+Pouso+Alegre+MG" target="_blank" rel="noopener">Rua Tiradentes, 400, loja 6, Centro, Pouso Alegre/MG</a></p>
     <p><a href="https://instagram.com/kekaboleira" target="_blank" rel="noopener">@kekaboleira</a></p>
     <p class="credito">Site feito por Dzk</p>
   </div>
 </footer>
 
-<a class="whats-flutuante" href="https://wa.me/message/O7ZKYL6QNNVAC1" target="_blank" rel="noopener" aria-label="Fazer pedido pelo WhatsApp">
-  <svg><use href="#i-whats"/></svg>
-</a>
+<!-- Barra fixa com o resumo do pedido -->
+<div class="barra" id="barra">
+  <div class="container">
+    <div class="resumo"><strong id="barra-total">R$ 0,00</strong><span id="barra-qtd">0 itens</span></div>
+    <button class="btn btn-whats" id="abrir-pedido"><svg><use href="#i-carrinho"/></svg>Ver carrinho</button>
+  </div>
+</div>
+
+<!-- Gaveta do pedido -->
+<div class="fundo" id="fundo"></div>
+<aside class="gaveta" id="gaveta" aria-label="Seu carrinho" aria-hidden="true">
+  <div class="gaveta-topo">
+    <h2>Seu carrinho</h2>
+    <button class="fechar" id="fechar-pedido" aria-label="Fechar">×</button>
+  </div>
+  <div class="gaveta-corpo">
+    <div id="itens"></div>
+    <div class="dados">
+      <label class="campo">Seu nome
+        <input id="cliente-nome" type="text" autocomplete="name" placeholder="Como a Keka te chama?">
+      </label>
+      <label class="campo">Pra quando?
+        <input id="cliente-data" type="date">
+      </label>
+      <label class="campo">Observações
+        <textarea id="cliente-obs" rows="3" placeholder="Ex.: escrever 'Parabéns, Ana' no bolo"></textarea>
+      </label>
+    </div>
+  </div>
+  <div class="gaveta-pe">
+    <div class="total"><span>Total estimado</span><strong id="gaveta-total">R$ 0,00</strong></div>
+    <p class="nota">A Keka confirma valor final e disponibilidade pelo WhatsApp.</p>
+    <button class="btn btn-verde" id="enviar">
+      <svg><use href="#i-whats"/></svg>Finalizar pedido
+    </button>
+  </div>
+</aside>
 
 <script>
-  // Enquanto a foto não existe em assets/produtos/, mostra um espaço reservado com o nome do arquivo esperado
-  document.querySelectorAll('img[data-reserva]').forEach(function (img) {
-    function trocar() {
-      var div = document.createElement('div');
-      div.className = 'reserva';
-      div.innerHTML = '<strong>Foto aqui</strong><span>assets/produtos/' + img.dataset.reserva + '</span>';
-      img.replaceWith(div);
+  // ====== EDITAR AQUI ======
+  // Número que recebe os pedidos (só dígitos, com 55 + DDD)
+  var WHATSAPP = '5535998893572';
+
+  // Enquanto true, mostra o aviso de "preços de exemplo". Trocar pra false quando a Keka confirmar tudo.
+  var PRECOS_DE_EXEMPLO = true;
+
+  var CATEGORIAS = [
+    { id: 'bolos', nome: 'Bolos de festa' },
+    { id: 'individuais', nome: 'Fatias e potes' },
+    { id: 'doces', nome: 'Doces' }
+  ];
+
+  // Cada produto: tamanhos (com preço) e sabores são opcionais.
+  // Preços e sabores abaixo são EXEMPLOS: substituir pelos da Keka.
+  var PRODUTOS = [
+    {
+      id: 'bolo-festa', categoria: 'bolos', nome: 'Bolo de festa', foto: 'bolos.jpg',
+      desc: 'Bolo artesanal pra aniversário e toda comemoração que merece ser lembrada.',
+      tamanhos: [
+        { nome: '1 kg (serve ~10)', preco: 90 },
+        { nome: '2 kg (serve ~20)', preco: 170 },
+        { nome: '3 kg (serve ~30)', preco: 250 }
+      ],
+      sabores: ['Ninho com morango', 'Brigadeiro', 'Prestígio', 'Doce de leite com nozes']
+    },
+    {
+      id: 'bolo-destaque', categoria: 'bolos', nome: 'Bolo decorado', foto: 'destaque.jpg',
+      desc: 'Bolo com decoração especial pro tema da sua festa. Conte a ideia nas observações.',
+      tamanhos: [
+        { nome: '2 kg (serve ~20)', preco: 220 },
+        { nome: '3 kg (serve ~30)', preco: 320 }
+      ],
+      sabores: ['Ninho com morango', 'Brigadeiro', 'Prestígio', 'Doce de leite com nozes']
+    },
+    {
+      id: 'bolo-fatia', categoria: 'individuais', nome: 'Bolo fatia', foto: 'bolo-fatia.jpg',
+      desc: 'Pra matar a vontade de bolo sem precisar de festa.',
+      preco: 15,
+      sabores: ['Ninho com morango', 'Brigadeiro', 'Red velvet']
+    },
+    {
+      id: 'bolo-pote', categoria: 'individuais', nome: 'Bolo de pote', foto: 'bolo-de-pote.jpg',
+      desc: 'Camadas de massa e recheio no pote, fácil de levar pra onde for.',
+      preco: 14,
+      sabores: ['Ninho com Nutella', 'Brigadeiro', 'Prestígio']
+    },
+    {
+      id: 'copo-tentacao', categoria: 'individuais', nome: 'Copo tentação', foto: 'copo-tentacao.jpg',
+      desc: 'Um copo cheio de camadas de doce, difícil de resistir.',
+      preco: 18
+    },
+    {
+      id: 'morango-amor', categoria: 'doces', nome: 'Morango do amor', foto: 'morango-do-amor.jpg',
+      desc: 'Morango com brigadeiro e casquinha crocante.',
+      preco: 12
+    },
+    {
+      id: 'bombom', categoria: 'doces', nome: 'Bombons', foto: 'bombom.jpg',
+      desc: 'Bombons pra presentear ou deixar a mesa da festa completa.',
+      tamanhos: [
+        { nome: 'Unidade', preco: 6 },
+        { nome: 'Caixa com 6', preco: 32 }
+      ]
     }
-    if (img.complete && img.naturalWidth === 0) trocar();
-    else img.addEventListener('error', trocar);
-  });
+  ];
+  // ====== FIM DA ÁREA DE EDIÇÃO ======
+
+  var real = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+  var carrinho = [];
+  try { carrinho = JSON.parse(localStorage.getItem('keka-carrinho')) || []; } catch (e) {}
+
+  function el(tag, attrs, filhos) {
+    var n = document.createElement(tag);
+    for (var k in attrs || {}) {
+      if (k === 'text') n.textContent = attrs[k];
+      else if (k.indexOf('on') === 0) n.addEventListener(k.slice(2), attrs[k]);
+      else n.setAttribute(k, attrs[k]);
+    }
+    (filhos || []).forEach(function (f) { if (f) n.appendChild(f); });
+    return n;
+  }
+
+  function precoDe(p, tamanho) {
+    if (!p.tamanhos) return p.preco;
+    var t = p.tamanhos.filter(function (x) { return x.nome === tamanho; })[0];
+    return t ? t.preco : p.tamanhos[0].preco;
+  }
+
+  function foto(arquivo, alt) {
+    var img = el('img', { 'class': 'foto', src: 'assets/produtos/' + arquivo, alt: alt, loading: 'lazy' });
+    img.addEventListener('error', function () {
+      img.replaceWith(el('div', { 'class': 'reserva' }, [
+        el('strong', { text: 'Foto aqui' }), el('span', { text: 'assets/produtos/' + arquivo })
+      ]));
+    });
+    return img;
+  }
+
+  function seletor(rotulo, opcoes, aoMudar) {
+    var s = el('select', { onchange: aoMudar });
+    opcoes.forEach(function (o) { s.appendChild(el('option', { value: o, text: o })); });
+    return { campo: el('label', { 'class': 'campo' }, [document.createTextNode(rotulo), s]), select: s };
+  }
+
+  function card(p) {
+    var qtd = 1;
+    var precoEl = el('div', { 'class': 'preco' });
+    var tam, sab;
+    // Opção extra no sabor: leva uma unidade de cada sabor de uma vez
+    var umDeCada = p.sabores && p.sabores.length > 1 ? '1 de cada sabor (' + p.sabores.length + ' un.)' : null;
+
+    function sabores() {
+      if (!sab) return [undefined];
+      return sab.select.value === umDeCada ? p.sabores : [sab.select.value];
+    }
+
+    function atualizaPreco() {
+      var valor = precoDe(p, tam && tam.select.value);
+      var n = sabores().length;
+      precoEl.textContent = '';
+      if (n > 1) precoEl.appendChild(el('small', { text: n + ' × ' + real.format(valor) + ' = ' }));
+      precoEl.appendChild(document.createTextNode(real.format(valor * n)));
+    }
+
+    if (p.tamanhos) tam = seletor('Tamanho', p.tamanhos.map(function (t) { return t.nome; }), atualizaPreco);
+    if (p.sabores) sab = seletor('Sabor', umDeCada ? p.sabores.concat(umDeCada) : p.sabores, atualizaPreco);
+
+    var num = el('span', { text: '1' });
+    var add = el('button', { 'class': 'add', text: 'Adicionar' });
+    add.addEventListener('click', function () {
+      sabores().forEach(function (s) { adicionar(p, tam && tam.select.value, s, qtd); });
+      add.textContent = 'No carrinho ✓';
+      add.classList.add('ok');
+      setTimeout(function () { add.textContent = 'Adicionar'; add.classList.remove('ok'); }, 1200);
+      qtd = 1; num.textContent = '1';
+    });
+
+    var c = el('article', { 'class': 'card' }, [
+      el('div', { 'class': 'img' }, [foto(p.foto, p.nome)]),
+      el('div', { 'class': 'info' }, [
+        el('h3', { text: p.nome }),
+        el('p', { 'class': 'desc', text: p.desc }),
+        precoEl,
+        tam && tam.campo,
+        sab && sab.campo,
+        el('div', { 'class': 'comprar' }, [
+          el('div', { 'class': 'qtd' }, [
+            el('button', { 'aria-label': 'Diminuir', text: '−', onclick: function () { if (qtd > 1) num.textContent = --qtd; } }),
+            num,
+            el('button', { 'aria-label': 'Aumentar', text: '+', onclick: function () { num.textContent = ++qtd; } })
+          ]),
+          add
+        ])
+      ])
+    ]);
+    atualizaPreco();
+    return c;
+  }
+
+  function montarCatalogo() {
+    var alvo = document.getElementById('catalogo');
+    var filtros = document.getElementById('filtros');
+    var botoes = [];
+
+    function filtrar(id) {
+      botoes.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.cat === id ? 'true' : 'false'); });
+      document.querySelectorAll('.categoria').forEach(function (s) {
+        s.hidden = id !== 'todos' && s.dataset.cat !== id;
+      });
+    }
+
+    [{ id: 'todos', nome: 'Tudo' }].concat(CATEGORIAS).forEach(function (c) {
+      var b = el('button', { 'class': 'filtro', 'data-cat': c.id, text: c.nome, onclick: function () { filtrar(c.id); } });
+      botoes.push(b);
+      filtros.appendChild(b);
+    });
+
+    CATEGORIAS.forEach(function (c) {
+      var itens = PRODUTOS.filter(function (p) { return p.categoria === c.id; });
+      if (!itens.length) return;
+      alvo.appendChild(el('div', { 'class': 'categoria', 'data-cat': c.id }, [
+        el('h2', { text: c.nome }),
+        el('div', { 'class': 'grade' }, itens.map(card))
+      ]));
+    });
+    filtrar('todos');
+  }
+
+  // ---- Pedido ----
+  function salvar() {
+    try { localStorage.setItem('keka-carrinho', JSON.stringify(carrinho)); } catch (e) {}
+  }
+
+  function adicionar(p, tamanho, sabor, qtd) {
+    var chave = [p.id, tamanho || '', sabor || ''].join('|');
+    var existente = carrinho.filter(function (i) { return i.chave === chave; })[0];
+    if (existente) existente.qtd += qtd;
+    else carrinho.push({ chave: chave, id: p.id, nome: p.nome, tamanho: tamanho || '', sabor: sabor || '', preco: precoDe(p, tamanho), qtd: qtd });
+    salvar();
+    render();
+  }
+
+  function total() {
+    return carrinho.reduce(function (s, i) { return s + i.preco * i.qtd; }, 0);
+  }
+
+  function detalhe(i) {
+    return [i.tamanho, i.sabor].filter(Boolean).join(' · ');
+  }
+
+  function render() {
+    var n = carrinho.reduce(function (s, i) { return s + i.qtd; }, 0);
+    document.getElementById('barra').classList.toggle('ativa', n > 0);
+    document.getElementById('barra-total').textContent = real.format(total());
+    document.getElementById('barra-qtd').textContent = n + (n === 1 ? ' item no carrinho' : ' itens no carrinho');
+    document.getElementById('contador').textContent = n;
+    document.getElementById('contador').hidden = n === 0;
+    document.getElementById('gaveta-total').textContent = real.format(total());
+    document.getElementById('enviar').disabled = n === 0;
+
+    var lista = document.getElementById('itens');
+    lista.textContent = '';
+    if (!carrinho.length) {
+      lista.appendChild(el('p', { 'class': 'vazio', text: 'Seu carrinho está vazio. Escolha algo no catálogo.' }));
+      return;
+    }
+    carrinho.forEach(function (i, idx) {
+      lista.appendChild(el('div', { 'class': 'item' }, [
+        el('div', { 'class': 'item-topo' }, [
+          el('div', {}, [el('strong', { text: i.nome }), detalhe(i) ? el('small', { text: detalhe(i) }) : null]),
+          el('strong', { text: real.format(i.preco * i.qtd) })
+        ]),
+        el('div', { 'class': 'item-baixo' }, [
+          el('div', { 'class': 'qtd' }, [
+            el('button', { 'aria-label': 'Diminuir', text: '−', onclick: function () { mudarQtd(idx, -1); } }),
+            el('span', { text: String(i.qtd) }),
+            el('button', { 'aria-label': 'Aumentar', text: '+', onclick: function () { mudarQtd(idx, 1); } })
+          ]),
+          el('button', { 'class': 'remover', text: 'Remover', onclick: function () { carrinho.splice(idx, 1); salvar(); render(); } })
+        ])
+      ]));
+    });
+  }
+
+  function mudarQtd(idx, delta) {
+    carrinho[idx].qtd += delta;
+    if (carrinho[idx].qtd < 1) carrinho.splice(idx, 1);
+    salvar();
+    render();
+  }
+
+  function abrir(sim) {
+    document.getElementById('gaveta').classList.toggle('aberta', sim);
+    document.getElementById('gaveta').setAttribute('aria-hidden', sim ? 'false' : 'true');
+    document.getElementById('fundo').classList.toggle('aberto', sim);
+    document.body.classList.toggle('travado', sim);
+  }
+
+  function enviar() {
+    var nome = document.getElementById('cliente-nome').value.trim();
+    var data = document.getElementById('cliente-data').value;
+    var obs = document.getElementById('cliente-obs').value.trim();
+    var linhas = ['Oi, Keka! Quero fazer um pedido pelo catálogo:', ''];
+    carrinho.forEach(function (i) {
+      linhas.push('• ' + i.qtd + 'x ' + i.nome + (detalhe(i) ? ' (' + detalhe(i) + ')' : '') + ' — ' + real.format(i.preco * i.qtd));
+    });
+    linhas.push('', 'Total estimado: ' + real.format(total()));
+    if (nome) linhas.push('Nome: ' + nome);
+    if (data) linhas.push('Pra quando: ' + data.split('-').reverse().join('/'));
+    if (obs) linhas.push('Observações: ' + obs);
+    linhas.push('Retirada na loja.');
+    window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(linhas.join('\n')), '_blank', 'noopener');
+  }
+
+  document.getElementById('abrir-pedido').addEventListener('click', function () { abrir(true); });
+  document.getElementById('carrinho-topo').addEventListener('click', function () { abrir(true); });
+  document.getElementById('fechar-pedido').addEventListener('click', function () { abrir(false); });
+  document.getElementById('fundo').addEventListener('click', function () { abrir(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') abrir(false); });
+  document.getElementById('enviar').addEventListener('click', enviar);
+  document.getElementById('cliente-data').min = new Date().toISOString().slice(0, 10);
+  document.getElementById('aviso-exemplo').hidden = !PRECOS_DE_EXEMPLO;
+
+  montarCatalogo();
+  render();
 </script>
 </body>
 </html>
