@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">
+  <rect width="200" height="200" fill="#FDDCEB"/>
+  <g transform="translate(0 -5)" fill="none" stroke="#6B4518" stroke-linejoin="round">
+    <!-- Lia -->
+    <g stroke-width="4.5">
+      <path d="M60 58V114H88"/>
+      <path d="M98 82V114"/>
+      <ellipse cx="124" cy="98" rx="14" ry="16"/>
+      <path d="M138 82V114"/>
+    </g>
+    <!-- cupcake no lugar do pingo do i -->
+    <g fill="#6B4518" stroke="none">
+      <path d="M92.5 70H103.5L101.5 78H94.5Z"/>
+      <path d="M91.5 70a6.5 5.5 0 0 1 13 0Z"/>
+      <circle cx="98" cy="62.5" r="2"/>
+    </g>
+    <path d="M96 71.5L96.8 77M100 71.5L99.2 77" stroke="#FDDCEB" stroke-width="1"/>
+    <!-- Doces -->
+    <g stroke-width="2.8" stroke-linecap="round">
+      <path d="M50 124V152H58A14 14 0 0 0 58 124Z"/>
+      <circle cx="85.5" cy="143.5" r="8.5"/>
+      <path d="M114 138A8.5 8.5 0 1 0 114 149"/>
+      <path d="M120 143.5H137A8.5 8.5 0 1 0 135 149"/>
+      <path d="M153 137.5C151 135 143 134.5 143 139.5C143 144 154 142.5 154 147.5C154 152.5 145 152.5 142 149.5"/>
+    </g>
+  </g>
+</svg>
